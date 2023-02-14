@@ -141,7 +141,7 @@ OcppMessage *ConnectorMeterValuesRecorder::toMeterValues() {
     if (energy.size() != sampleTimestamp.size() && power.size() == sampleTimestamp.size()) {
         auto result = new MeterValues(&sampleTimestamp, nullptr, &power, connectorId, lastTransactionId);
         clear();
-        Serial.println("Cleared 4");
+        // Serial.println("Cleared 4");
         return result;
     }
     

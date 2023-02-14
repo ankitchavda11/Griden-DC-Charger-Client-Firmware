@@ -215,16 +215,16 @@ void OCPP_loop() {
     }
 
 }
-void stat() // function to return status notification in every 20sec window
-{
-    Serial.println("inside stat 20sec condition");
-    auto& model = ocppEngine->getOcppModel();
-        for(int i=0; i<= 1;i++){
-        ArduinoOcpp::ConnectorStatus constat(model, i);
-        constat.inferenceStatus();
-        }
-    // ArduinoOcpp::ChargePointStatusService::loop()
-}
+// void stat() // function to return status notification in every 20sec window
+// {
+//     Serial.println("inside stat 20sec condition");
+//     auto& model = ocppEngine->getOcppModel();
+//         for(int i=0; i<= 1;i++){
+//         ArduinoOcpp::ConnectorStatus constat(model, i);
+//         constat.inferenceStatus();
+//         }
+//     // ArduinoOcpp::ChargePointStatusService::loop()
+// }
 void setPowerActiveImportSampler(std::function<float()> power) {
     if (!ocppEngine) {
         AO_DBG_ERR("Please call OCPP_initialize before");

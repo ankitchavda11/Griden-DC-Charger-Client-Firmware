@@ -88,6 +88,10 @@ void StartTransaction::initiate()
     // else
     // {
         AO_DBG_INFO("StartTransaction initiated");
+        // ocppsetup.lcdClear();
+        // ocppsetup.lcdPrint("initialising Transaction",0,0);
+        // delay(1000);
+        // ocppsetup.lcdClear();
     // }
 }
 

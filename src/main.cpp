@@ -285,11 +285,11 @@ void loop()
     }
 
     OCPP_loop();
-    if (millis() - millissec > 20000)
-    {
-        stat();
-        millissec = millis();
-    }
+    // if (millis() - millissec > 20000)
+    // {
+    //     stat();
+    //     millissec = millis();
+    // }
     if (millis() - prev_millis > 500)
     {
         char *mtr;

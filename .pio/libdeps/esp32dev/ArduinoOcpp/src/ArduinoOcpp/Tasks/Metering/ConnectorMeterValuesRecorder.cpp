@@ -102,7 +102,7 @@ OcppMessage *ConnectorMeterValuesRecorder::toMeterValues() {
         // Serial.printf("\n energy :-  %f", energy);
         // Serial.printf("\n power :-  %f", power);
         // Serial.printf("\n sampleTImestamp :-  %f ",sampleTimestamp);
-        // Serial.println("\n \ncleared 1");
+        Serial.println("\n \ncleared 1");
         //return result;
         return nullptr;
     }
@@ -110,14 +110,14 @@ OcppMessage *ConnectorMeterValuesRecorder::toMeterValues() {
 
     //decide which measurands to send. If a measurand is missing at at least one point in time, omit that measurand completely
 
-    if (energy.size() == sampleTimestamp.size() && power.size() == sampleTimestamp.size()) {
+    if (energy.size() == sampleTimestamp.size() && power.size() == sampleTimestamp.size() && getTransactionId() > 0) {
         auto result = new MeterValues(&sampleTimestamp, &energy, &power, connectorId, lastTransactionId);
         
         clear();
         // Serial.printf("\n energy :-  %f", energy);
         // Serial.printf("\n power :-  %f", power);
         // Serial.printf("\n sampleTImestamp :-  %f ",sampleTimestamp);
-        // Serial.println("Cleared 2");
+        Serial.println("Cleared 2");
         return result;
     }
     
@@ -131,7 +131,7 @@ OcppMessage *ConnectorMeterValuesRecorder::toMeterValues() {
         // Serial.printf("\n energy :-  %f", energy);
         // Serial.printf("\n power :-  %f", power);
         // Serial.printf("\n sampleTImestamp :-  %f ",sampleTimestamp);
-        // Serial.println("\n Cleared 3");
+        Serial.println("\n Cleared 3");
         tran = tran1;
         // Serial.println(tran);
         return result;
@@ -141,7 +141,7 @@ OcppMessage *ConnectorMeterValuesRecorder::toMeterValues() {
     if (energy.size() != sampleTimestamp.size() && power.size() == sampleTimestamp.size()) {
         auto result = new MeterValues(&sampleTimestamp, nullptr, &power, connectorId, lastTransactionId);
         clear();
-        // Serial.println("Cleared 4");
+        Serial.println("Cleared 4");
         return result;
     }
     
